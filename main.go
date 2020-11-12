@@ -2,14 +2,18 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"strings"
 
 	"github.com/bwmarrin/discordgo"
+	"github.com/joho/godotenv"
 )
 
-const token string = "NzYzMDY2MTQ4NjAxNDYyNzk0.X3ySug.xL7ipJW--H5eczwjJ9O0OQAmEtU"
-
 func main() {
+
+	godotenv.Load()
+	token := os.Getenv("BOT_TOKEN")
+
 	dg, err := discordgo.New("Bot " + token)
 
 	if err != nil {
