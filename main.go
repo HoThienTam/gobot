@@ -7,12 +7,10 @@ import (
 	"strings"
 
 	"github.com/bwmarrin/discordgo"
-	"github.com/joho/godotenv"
 )
 
 func main() {
 
-	godotenv.Load()
 	token := os.Getenv("BOT_TOKEN")
 
 	dg, err := discordgo.New("Bot " + token)
