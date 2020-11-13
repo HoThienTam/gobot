@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 	"os"
 	"strings"
 
@@ -31,6 +32,14 @@ func main() {
 	}
 
 	fmt.Println("Bot is running!")
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	http.Handle("/", http.FileServer(http.Dir("public")))
+	http.ListenAndServe(":"+port, nil)
 
 	<-make(chan struct{})
 	return
