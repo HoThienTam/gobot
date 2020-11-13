@@ -1,1 +1,1 @@
-web: bin/gobot.exe
+web: bin/gobot
